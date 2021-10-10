@@ -1,24 +1,8 @@
-# hangul-only
+# 한글좋아
 
-## Project setup
-```
-npm install
-```
+![한글날](public/og-image.jpg)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- 2021 한글날을 맞아 제작되었습니다.
+- 한글을 너무 좋아한 나머지 모든 영어를 한글로 변경합니다.
+- 이제 이 페이지에는 한글만이 가득할거에요! 🙂
