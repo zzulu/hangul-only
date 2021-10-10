@@ -28,6 +28,7 @@ export default {
   methods: {
     transliterate() {
       this.processing = true
+      const origin = this.input
       const requests = this.splitEnKoBlock(this.input).map((block) => {
         if (block[0] == 'en') {
           return axios.post('https://api.only.hangul.kim', { input: block[1] })
@@ -37,7 +38,7 @@ export default {
       })
       Promise.all(requests)
         .then((responses) => {
-          this.createComment(this.input, responses.map(response => response).join(''))
+          this.createComment(origin, responses.map(response => response).join(''))
         })
         .catch(() => {
           this.processing = false
@@ -76,12 +77,12 @@ export default {
       
       return result
     },
-    createComment(input, output) {
+    createComment(origin, output) {
       this.$emit('create-comment', {
         uid: this.user.uid,
         author: this.user.author,
         content: output,
-        origin: input,
+        origin: origin,
         createdAt: Date.now(),
       })
       this.processing = false
