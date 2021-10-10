@@ -37,7 +37,7 @@ export default {
       })
       Promise.all(requests)
         .then((responses) => {
-          this.createComment(responses.map(response => response).join(''))
+          this.createComment(this.input, responses.map(response => response).join(''))
         })
         .catch(() => {
           this.processing = false
@@ -76,11 +76,12 @@ export default {
       
       return result
     },
-    createComment(output) {
+    createComment(input, output) {
       this.$emit('create-comment', {
         uid: this.user.uid,
         author: this.user.author,
         content: output,
+        origin: input,
         createdAt: Date.now(),
       })
       this.processing = false
